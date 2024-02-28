@@ -11,18 +11,17 @@ pulsante.addEventListener('click', () => {
 
 let testoAccordi = testo.value;
 
+
 //INSERIRE Titolo
 
-let inputTitolo = document.querySelector('#titolo')
+let inputTitolo = document.querySelector('#titolo');
+let inputAutore = document.querySelector('#autore');
 
-let titolo = document.querySelector('.titolo')
+let titolo = document.querySelector('.titolo');
 titolo.innerText = inputTitolo.value;
 
-//non funziona su firefox 
-// ritornello.addEventListener('click', () => {
-//     let text = window.getSelection().toString()
-//     console.log(text);
-// })
+let autore = document.querySelector('.autore');
+autore.innerText = inputAutore.value;
 
 let cntAccordi = document.querySelector('.cnt-accordi');
 let aggiungiAccordo = document.querySelector('.aggiungi');
@@ -125,22 +124,6 @@ indiceFineFrase.forEach( e => {
 
     contenitoreAccFrase.prepend(accordiFormattati);
     accordiFormattati.classList.add('accordi-formattati');
-
-    // if(frasi.innerHTML === ' ') {
-    //     console.log('ce sta')
-    // }
-
-    // // EVIDENZIARE IL RITORNELLO
-    // selRit.addEventListener('click', evidenziaRIT)
-
-    // function evidenziaRIT() {
-    //     var start = testo.selectionStart;
-    //     var finish = testo.selectionEnd;
-    //     var sel = testo.value.substring(start, finish);
-
-    //     ritornelloBold = `<b> ${sel} </b>`;
-    //     console.log(ritornelloBold);
-    // };
 
 
     //incolla accordo al click su contenitore degli accordi

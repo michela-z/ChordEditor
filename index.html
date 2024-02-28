@@ -17,14 +17,20 @@
         <div class="editor">
             <label for="titolo">Inserisci il titolo</label>
             <textarea name="titolo" id="titolo" cols="45" rows="1"></textarea>
+
+            <label for="titolo">Inserisci l'autore</label>
+            <textarea name="autore" id="autore" cols="45" rows="1"></textarea>
+
             <label for="titolo">Inserisci il testo</label>
             <textarea name="testo" id="testo" cols="45" rows="10"></textarea>
+
             <div class="pulsanti">
                 <!-- <button class="pulsante" id="ritornello"> evidenzia RIT </button> -->
                 <button class="pulsante"> elabora </button>
             </div>
 
             <label for="titolo">Quali accordi vuoi inserire sul testo?</label>
+
             <div class="modifica-accordi">
                 <input type="text" class="get-accordo" onfocus="this.value=''">
                 <button class="aggiungi">add</button>
@@ -32,18 +38,23 @@
             </div> 
 
             <label for="titolo">Seleziona l'accordo che vuoi inserire sul testo</label>
+
             <div class="cnt-accordi"></div>
+
             <div class="guida">
                 <p><b>Evidenzia</b> il ritornello cliccando col tasto destro del mouse la linea desiderata.</p>
                 <p><b>Elimina</b> l'accordo inserito cliccando sullo stesso col il tasto destro del mouse.</p>
             </div>
+
             <button id="download-pdf" class="pulsante">Download PDF</button>
+
         </div>
 
 
         <div class="cnt-testo-finale">
             <div class="container-testo" id="content">
                 <h1 class="titolo"></h1>
+                <h4 class="autore"></h4>
             </div>
         </div>
 

@@ -37,6 +37,11 @@ textarea {
     padding: 15px 20px;
 }
 
+#titolo, #autore {
+    padding-top: 7px;
+    height: 30px;
+}
+
 .container {
     /* border: #2e7eff solid 1px; */
     height: 100vh;
@@ -172,7 +177,12 @@ label {
 
 .titolo {
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+}
+
+.autore {
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .guida {
