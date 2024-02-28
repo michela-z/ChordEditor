@@ -149,7 +149,7 @@ indiceFineFrase.forEach( e => {
 
         //let container = document.querySelector('.container');
 
-        let xaxis = event.clientX - (window.innerWidth / 1.85);
+        let xaxis = event.clientX - (window.innerWidth / 1.95);
 
         let nota = document.createElement('div');
         contenitoreAccFrase.append(nota);
