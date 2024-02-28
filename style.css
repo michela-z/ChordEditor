@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat';
+    color: rgb(62, 62, 62);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+.titolo-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #2e7eff;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+
+    z-index: 50;
+}
+
+textarea {
+    border: #d8d8d8 1px solid;
+    border-radius: 30px;
+    padding: 15px 20px;
+}
+
+.container {
+    /* border: #2e7eff solid 1px; */
+    height: 100vh;
+    /* max-width: 1000px; */
+    width: 870px;
+    min-width: 870px;
+    position: relative;
+    margin-top: 50px;
+    z-index: 10;
+}
+
+label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #adadad;
+    font-size: 0.9rem;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnt-testo-finale {
+    position: absolute;
+    right: 0;
+}
+
+.pulsante {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 20px 0;
+}
+
+.aggiungi, .rimuovi {
+    padding: 5px 10px;
+}
+
+.container-testo {
+    /* border: solid 0.5px #d8d8d8; */
+    border-radius: 20px;
+    padding: 20px;
+    width: 420px;
+    margin-top: 20px;
+    z-index: 0;
+    position: relative;
+}
+
+.testo-formattato {
+    /* border: solid rgb(234, 234, 234) 1px; */
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.accordi-formattati {
+    position: relative;
+    /* border: solid #f0efef 1px; */
+    color: #2e7eff;
+    height: 20px;
+}
+
+.accordi {
+    margin: 10px 0;
+    color: #2e7eff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 0;
+}
+
+.cnt-accordi {
+    border: solid #d8d8d8 1px;
+    border-radius: 20px;
+    width: 400px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-accordo {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    margin: 5px;
+
+    background-color: #d4d4d4;
+}
+
+.selezionato {
+    background-color: #2e7eff;
+    color: white;
+}
+
+.nota {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #2e7eff;
+    border-radius: 10px;
+    padding: 0 5px;
+    font-weight: 600;
+
+    z-index: 5;
+}
+
+.modifica-accordi {
+    margin-bottom: 10px;
+}
+
+.modifica-accordi button {
+    background-color: #2e7eff;
+    color: white;
+    border: none;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.titolo {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.guida {
+    border: solid 1 px green;
+    width: 400px;
+    margin: 20px 0;
+}
+
+.guida p {
+    word-wrap: break-word;
+    color: #adadad;
+    font-size: 0.9rem;
+    margin: 10px 0;
+}
+
+#download-pdf {
+    background-color: #2e7eff;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+#download-pdf:hover {
+    background-color: #adadad;
+    color: white;
+}
