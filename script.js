@@ -43,7 +43,42 @@ aggiungiAccordo.addEventListener('click', () => {
     let newAccordo = document.createElement('button')
     newAccordo.classList.add('btn-accordo');
     cntAccordi.prepend(newAccordo)
-    newAccordo.innerText = `${input.value.toUpperCase()}`
+    //newAccordo.innerText = `${input.value.toUpperCase()}`
+
+    //EVITARE IL MAIUSCOLO IN LETTERE CHE DEVONO RIMANERE SCRITTE IN MINUSCOLO
+    //for(let i = 0; i < input.value.length; i++) {
+
+        if(input.value.includes('b')) {
+            //console.log('if')
+            //console.log(input.value.indexOf('b'))
+            let noBemolle = input.value.replace('b', '');
+            newAccordo.innerText = `${noBemolle.toUpperCase() + 'b'}`
+
+        } else if (input.value.includes('m')) {
+
+            console.log('elseif');
+            //console.log(input.value.indexOf('m'));
+
+            let emme = input.value;
+            let index = [];
+            for(let i = 0; i < emme.length ; i++) {
+                if (emme[i] === "m") index.push(i);
+            }
+
+            console.log(index)
+
+            //let indexMinore = input.value[i] + " " + input.value[i].indexOf('m');
+            //emme = input.value.replace('m', '');
+            newAccordo.innerText = `${emme.toUpperCase().slice(0, index[0]) + 'm' + emme.toUpperCase().slice(index[1], index.length - 1)}`;
+
+            //let minore = input.value.replace('m', '');
+            //newAccordo.innerText = `${minore.toUpperCase().slice(0, index[1]) + "m" + minore.toUpperCase().slice(index.length - 1)}`;
+            //newAccordo.innerText = minore
+        } else {
+            console.log('else')
+            newAccordo.innerText = `${input.value.toUpperCase()}`
+        }
+    //}
 
     let accordo = document.querySelectorAll('.btn-accordo');
 
@@ -80,7 +115,7 @@ rimuoviAccordo.addEventListener('click', () => {
     let accInseriti = cntAccordi.childNodes;
 
     for(let i = 0; i < accInseriti.length; i++ ) {
-        console.log(accInseriti[i].innerText)
+        //console.log(accInseriti[i].innerText)
         let accSelezionato = localStorage.getItem("accordoSelezionato")
         if(accInseriti[i].innerText === accSelezionato) {
             accInseriti[i].remove()
@@ -155,18 +190,34 @@ document.getElementById('download-pdf')
 
             const options = {
                 filename: 'GFG.pdf',
-                margin: 0,
-                image: { type: 'png', quality: 100 },
+                margin: [0, 0.5, 0, 0],
+                image: { type: 'jpeg', quality: 100 },
                 html2canvas: { scale: 2 },
                 jsPDF: {
                     unit: 'in',
-                    format: 'letter',
-                    orientation: 'portrait'
+                    format: 'ledger',
+                    orientation: 'portrait',
                 },
                 pagebreak: { mode: 'avoid-all'}
             };
 
             html2pdf().set(options).from(element).save();
+
+            // html2pdf().from(element).set({
+            // margin:       [1, 0, 0, 0], 
+            // filename: 'samplepdf.pdf',
+            // pageBreak: { mode: 'css', before:'#nextpage1'},
+            // jsPDF: {orientation: 'landscape', unit: 'in', format: 'letter'}
+            // }).toPdf().get('pdf').then((pdf) => {
+            // var totalPages = pdf.internal.getNumberOfPages();
+            // for (i = 1; i <= totalPages; i++) {
+            //     pdf.setPage(i);
+            //     pdf.setFontSize(10);
+            //     pdf.setTextColor(150);
+            //     pdf.text('This is the header text', (pdf.internal.pageSize.getWidth()/2.40), (pdf.internal.pageSize.getHeight()-8));      
+            //     pdf.text('Page ' + i + ' of ' + totalPages, pdf.internal.pageSize.getWidth()/2.25), (pdf.internal.pageSize.getHeight() - 1);
+            // }}).save();
+            
         });
 
 
@@ -194,10 +245,8 @@ document.addEventListener('contextmenu', (event) => {
 function bold(event) {
     event.preventDefault();
     if(event.target.classList != "testo-formattato bold") {
-        console.log('non è bold')
         event.target.classList.add('bold')
     } else {
-        console.log('è bold, rimuovo la classe')
         event.target.classList.remove('bold')
     }
 }
