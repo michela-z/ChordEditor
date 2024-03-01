@@ -56,9 +56,6 @@ aggiungiAccordo.addEventListener('click', () => {
 
         } else if (input.value.includes('m')) {
 
-            console.log('elseif');
-            //console.log(input.value.indexOf('m'));
-
             let emme = input.value;
             let index = [];
 
@@ -66,16 +63,11 @@ aggiungiAccordo.addEventListener('click', () => {
                 if (emme[i] === "m") index.push(i);
             }
 
-            console.log(index);
-
-            console.log(index[index.length - 1]);
-
             let minore = index[index.length - 1];
 
             newAccordo.innerText = `${emme.slice(0, minore).toUpperCase()}` +  `${emme.slice(minore, emme.length)}`;
             
         } else {
-            console.log('else')
             newAccordo.innerText = `${input.value.toUpperCase()}`
         }
     //}
@@ -195,7 +187,7 @@ document.getElementById('download-pdf')
                 html2canvas: { scale: 2 },
                 jsPDF: {
                     unit: 'in',
-                    format: 'ledger',
+                    format: 'letter',
                     orientation: 'portrait',
                 },
                 pagebreak: { mode: 'avoid-all'}
