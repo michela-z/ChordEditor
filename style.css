@@ -49,12 +49,12 @@ textarea {
     width: 870px;
     min-width: 870px;
     position: relative;
-    margin-top: 50px;
+    margin-top: 60px;
     z-index: 10;
 }
 
 label {
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 5px;
     color: #adadad;
     font-size: 0.9rem;
@@ -187,7 +187,7 @@ label {
 .guida {
     border: solid 1 px green;
     width: 400px;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .guida p {
