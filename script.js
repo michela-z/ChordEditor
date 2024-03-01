@@ -180,17 +180,20 @@ document.getElementById('download-pdf')
 
             const element = document.getElementById('content');
 
+            let titolo = document.querySelector('.titolo');
+            titolo.innerText = inputTitolo.value;
+
             const options = {
-                filename: 'GFG.pdf',
+                filename: `${inputTitolo.value}_chord.pdf`,
                 margin: [0, 0.5, 0, 0],
                 image: { type: 'jpeg', quality: 100 },
-                html2canvas: { scale: 2 },
+                html2canvas: { scale: 2},
                 jsPDF: {
                     unit: 'in',
-                    format: 'a4',
+                    format: 'letter',
                     orientation: 'portrait',
                 },
-                pagebreak: { mode: 'avoid-all'}
+                pagebreak: { avoid: "tr", mode: "css", before: "#nextpage1" }
             };
 
             html2pdf().set(options).from(element).save();
