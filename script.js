@@ -46,34 +46,40 @@ aggiungiAccordo.addEventListener('click', () => {
     let newAccordo = document.createElement('button')
     newAccordo.classList.add('btn-accordo');
     cntAccordi.prepend(newAccordo)
-    //newAccordo.innerText = `${input.value.toUpperCase()}`
+
 
     //EVITARE IL MAIUSCOLO IN LETTERE CHE DEVONO RIMANERE SCRITTE IN MINUSCOLO
-    //for(let i = 0; i < input.value.length; i++) {
+    if(input.value.includes('b')) {
+        //console.log('if')
+        //console.log(input.value.indexOf('b'))
+        let noBemolle = input.value.replace('b', '');
+        newAccordo.innerText = `${noBemolle.toUpperCase() + 'b'}`
 
-        if(input.value.includes('b')) {
-            //console.log('if')
-            //console.log(input.value.indexOf('b'))
-            let noBemolle = input.value.replace('b', '');
-            newAccordo.innerText = `${noBemolle.toUpperCase() + 'b'}`
+    } else if (input.value.includes('m')) {
 
-        } else if (input.value.includes('m')) {
+        let emme = input.value;
+        let index = [];
 
-            let emme = input.value;
-            let index = [];
-
-            for(let i = 0; i < emme.length ; i++) {
-                if (emme[i] === "m") index.push(i);
-            }
-
-            let minore = index[index.length - 1];
-
-            newAccordo.innerText = `${emme.slice(0, minore).toUpperCase()}` +  `${emme.slice(minore, emme.length)}`;
-            
-        } else {
-            newAccordo.innerText = `${input.value.toUpperCase()}`
+        for(let i = 0; i < emme.length ; i++) {
+            if (emme[i] === "m") index.push(i);
         }
-    //}
+
+        console.log(index);
+
+        if(index.includes(0) && index.length === 1) {
+            newAccordo.innerText = `${input.value.toUpperCase()}`
+            return;
+        }
+
+        let minore = index[index.length - 1];
+        newAccordo.innerText = `${emme.slice(0, minore).toUpperCase()}` + `${emme.slice(minore, emme.length)}`;
+
+    } else {
+        console.log('else')
+        newAccordo.innerText = `${input.value.toUpperCase()}`
+    }
+
+
 
     let accordo = document.querySelectorAll('.btn-accordo');
 
@@ -171,8 +177,8 @@ indiceFineFrase.forEach( e => {
         //let container = document.querySelector('.container');
 
         let xaxis = event.clientX - (window.innerWidth / 1.90);
-        console.log(containerTesto.clientWidth, event.clientX, window.innerWidth / 1.85);
-        console.log(xaxis)
+        //console.log(containerTesto.clientWidth, event.clientX, window.innerWidth / 1.85);
+        //console.log(xaxis)
 
         let nota = document.createElement('div');
         accordiFormattati.append(nota);
