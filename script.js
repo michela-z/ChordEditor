@@ -61,19 +61,19 @@ aggiungiAccordo.addEventListener('click', () => {
 
             let emme = input.value;
             let index = [];
+
             for(let i = 0; i < emme.length ; i++) {
                 if (emme[i] === "m") index.push(i);
             }
 
-            console.log(index)
+            console.log(index);
 
-            //let indexMinore = input.value[i] + " " + input.value[i].indexOf('m');
-            //emme = input.value.replace('m', '');
-            newAccordo.innerText = `${emme.toUpperCase().slice(0, index[0]) + 'm' + emme.toUpperCase().slice(index[1], index.length - 1)}`;
+            console.log(index[index.length - 1]);
 
-            //let minore = input.value.replace('m', '');
-            //newAccordo.innerText = `${minore.toUpperCase().slice(0, index[1]) + "m" + minore.toUpperCase().slice(index.length - 1)}`;
-            //newAccordo.innerText = minore
+            let minore = index[index.length - 1];
+
+            newAccordo.innerText = `${emme.slice(0, minore).toUpperCase()}` +  `${emme.slice(minore, emme.length)}`;
+            
         } else {
             console.log('else')
             newAccordo.innerText = `${input.value.toUpperCase()}`
