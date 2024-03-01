@@ -3,6 +3,9 @@ let testoFormattato = document.querySelector(".testo-formattato");
 let pulsante = document.querySelector('.pulsante');
 
 let containerTesto = document.querySelector('.container-testo');
+let pagina1 = document.querySelector('.pagina-1');
+let pagina2 = document.querySelector('.pagina-2');
+let pagina3 = document.querySelector('.pagina-3');
 
 pulsante.addEventListener('click', () => {
     location.reload()
@@ -140,8 +143,21 @@ indiceFineFrase.forEach( e => {
     //contenitore di frase e accordo
     let contenitoreAccFrase = document.createElement('div');
     contenitoreAccFrase.classList.add('cnt-acc-frase')
-    containerTesto.append(contenitoreAccFrase);
 
+    console.log(containerTesto.childNodes)
+
+    if (pagina1.childNodes.length < 17) {
+        console.log('if')
+        pagina1.append(contenitoreAccFrase);
+    } else if (pagina2.childNodes.length < 20) {
+        console.log('else if')
+        pagina2.append(contenitoreAccFrase);
+    } else {
+        console.log('else')
+        pagina3.append(contenitoreAccFrase);
+    }
+
+    // per una corretta impaginazione nel pdf: creare un container nuovo ogni 17 elementi (.cnt-acc-frase) inseriti.
     let accordiFormattati = document.createElement('div');
     let frasi = document.createElement('p');
 
@@ -159,15 +175,15 @@ indiceFineFrase.forEach( e => {
 
         //let container = document.querySelector('.container');
 
-        let xaxis = event.clientX - (window.innerWidth / 1.95);
+        let xaxis = event.clientX - (window.innerWidth / 1.85);
 
         let nota = document.createElement('div');
-        contenitoreAccFrase.append(nota);
+        accordiFormattati.append(nota);
         nota.classList.add('nota')
         //nota.setAttribute('id', 'nota');
 
         nota.innerHTML = `${localStorage.getItem("accordoSelezionato")}`;
-        nota.style.transform = `translateY(${accordiFormattati.offsetTop}px) translateX(${xaxis}px)`
+        nota.style.transform = `translateX(${xaxis}px)`
     }
 
     accordiFormattati.addEventListener("click", inserisciAccordo);
@@ -180,12 +196,13 @@ document.getElementById('download-pdf')
 
             const element = document.getElementById('content');
 
-            let titolo = document.querySelector('.titolo');
-            titolo.innerText = inputTitolo.value;
+            if (window.scrollY) {
+                window.scroll(0, 0); // reset the scroll position to the top left of the document.
+            }
 
             const options = {
                 filename: `${inputTitolo.value}_chord.pdf`,
-                margin: [0, 0.5, 0, 0],
+                margin: [0.3, 0.5, 0, 0],
                 image: { type: 'jpeg', quality: 100 },
                 html2canvas: { scale: 2},
                 jsPDF: {
@@ -193,7 +210,7 @@ document.getElementById('download-pdf')
                     format: 'letter',
                     orientation: 'portrait',
                 },
-                pagebreak: { avoid: "tr", mode: "css", before: "#nextpage1" }
+                pagebreak: { mode: "css", after: ".pagina"}
             };
 
             html2pdf().set(options).from(element).save();

@@ -89,7 +89,6 @@ label {
     border-radius: 20px;
     padding: 20px;
     width: 420px;
-    margin-top: 20px;
     z-index: 0;
     position: relative;
 }
@@ -102,7 +101,7 @@ label {
 
 .accordi-formattati {
     position: relative;
-    /* border: solid #f0efef 1px; */
+    /* border: solid #d4d4d4 1px; */
     color: #2e7eff;
     height: 20px;
 }
@@ -210,3 +209,15 @@ label {
     background-color: #adadad;
     color: white;
 }
+
+/* .pagina-1 {
+    border: red solid 1px;
+}
+
+.pagina-2 {
+    border: blue solid 1px;
+}
+
+.pagina-3 {
+    border: green solid 1px;
+} */
