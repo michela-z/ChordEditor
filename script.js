@@ -144,16 +144,11 @@ indiceFineFrase.forEach( e => {
     let contenitoreAccFrase = document.createElement('div');
     contenitoreAccFrase.classList.add('cnt-acc-frase')
 
-    console.log(containerTesto.childNodes)
-
     if (pagina1.childNodes.length < 17) {
-        console.log('if')
         pagina1.append(contenitoreAccFrase);
     } else if (pagina2.childNodes.length < 20) {
-        console.log('else if')
         pagina2.append(contenitoreAccFrase);
     } else {
-        console.log('else')
         pagina3.append(contenitoreAccFrase);
     }
 
@@ -175,7 +170,9 @@ indiceFineFrase.forEach( e => {
 
         //let container = document.querySelector('.container');
 
-        let xaxis = event.clientX - (window.innerWidth / 1.85);
+        let xaxis = event.clientX - (window.innerWidth / 1.90);
+        console.log(containerTesto.clientWidth, event.clientX, window.innerWidth / 1.85);
+        console.log(xaxis)
 
         let nota = document.createElement('div');
         accordiFormattati.append(nota);
