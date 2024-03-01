@@ -187,7 +187,7 @@ document.getElementById('download-pdf')
                 html2canvas: { scale: 2 },
                 jsPDF: {
                     unit: 'in',
-                    format: 'letter',
+                    format: 'a4',
                     orientation: 'portrait',
                 },
                 pagebreak: { mode: 'avoid-all'}
