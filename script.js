@@ -35,6 +35,7 @@ let allAccordi = [];
 let ritornelloBold = [];
 let selRit = document.querySelector('#ritornello');
 
+
 aggiungiAccordo.addEventListener('click', () => {
 
     if(input.value === '') {
@@ -64,26 +65,27 @@ aggiungiAccordo.addEventListener('click', () => {
             if (emme[i] === "m") index.push(i);
         }
 
-        console.log(index);
-
-        if(index.includes(0) && index.length === 1) {
-            newAccordo.innerText = `${input.value.toUpperCase()}`
-            return;
-        }
+        //console.log('else if', index);
 
         let minore = index[index.length - 1];
         newAccordo.innerText = `${emme.slice(0, minore).toUpperCase()}` + `${emme.slice(minore, emme.length)}`;
 
+        //// questo return non permette che si selezioni il MI
+        if(index.includes(0) && index.length === 1) {
+            newAccordo.innerText = `${input.value.toUpperCase()}`
+            //return;
+        }
+
     } else {
-        console.log('else')
+        //console.log('else')
         newAccordo.innerText = `${input.value.toUpperCase()}`
     }
-
-
 
     let accordo = document.querySelectorAll('.btn-accordo');
 
     for (let i = 0; i < accordo.length; i++) {
+
+        console.log(cntAccordi.childNodes)
 
         accordo[i].addEventListener('click', selezionaAccordo);
 
