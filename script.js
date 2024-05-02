@@ -81,11 +81,12 @@ aggiungiAccordo.addEventListener('click', () => {
         newAccordo.innerText = `${input.value.toUpperCase()}`
     }
 
+
     let accordo = document.querySelectorAll('.btn-accordo');
 
     for (let i = 0; i < accordo.length; i++) {
 
-        console.log(cntAccordi.childNodes)
+        console.log(cntAccordi.childNodes);
 
         accordo[i].addEventListener('click', selezionaAccordo);
 
